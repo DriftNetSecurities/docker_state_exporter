@@ -177,6 +177,7 @@ func errCheck(err error) {
 // Define flags.
 var (
 	address = flag.String("listen-address", ":8080", "The address to listen on for HTTP requests.")
+	path = flag.String("web.telemetry-path", "/metrics", "The HTTP requests path for metrics.")
 )
 
 func init() {
@@ -209,11 +210,12 @@ func main() {
 		fmt.Fprintf(w, "up")
 	})
 
-	http.Handle("/metrics", promhttp.HandlerFor(
+	http.Handle(*path, promhttp.HandlerFor(
 		prometheus.DefaultGatherer,
 		promhttp.HandlerOpts{ErrorLog: &loggerWrapper{Logger: &errorLogger}, EnableOpenMetrics: true}))
 
 	normalLogger.Log("message", "Server listening...", "address", address)
+	normalLogger.Log("message", "path", path)
 
 	server := &http.Server{Addr: *address, Handler: nil}
 
