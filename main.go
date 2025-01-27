@@ -215,7 +215,7 @@ func main() {
 		promhttp.HandlerOpts{ErrorLog: &loggerWrapper{Logger: &errorLogger}, EnableOpenMetrics: true}))
 
 	normalLogger.Log("message", "Server listening...", "address", address)
-	normalLogger.Log("message", "path", path)
+	normalLogger.Log("path", path)
 
 	server := &http.Server{Addr: *address, Handler: nil}
 
