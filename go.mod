@@ -3,7 +3,7 @@ module docker_state_exporter
 go 1.23.5
 
 require (
-	github.com/docker/docker v27.5.1+incompatible
+	github.com/docker/docker v25.0.7+incompatible
 	github.com/go-kit/kit v0.13.0
 	github.com/prometheus/client_golang v1.20.5
 )
@@ -23,7 +23,6 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/klauspost/compress v1.17.9 // indirect
-	github.com/moby/docker-image-spec v1.3.1 // indirect
 	github.com/moby/term v0.5.2 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
